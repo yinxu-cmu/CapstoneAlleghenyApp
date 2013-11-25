@@ -133,7 +133,7 @@ public class StoreHandler extends SQLiteOpenHelper{
 
 
 	
-	//Getting single question
+	//Getting single store
 	public Store getStore(String id){
 		
 		try{
@@ -163,7 +163,46 @@ public class StoreHandler extends SQLiteOpenHelper{
 		
 	}
 	
-	//Getting All Questions
+	
+	//Getting all stores in a zipcode
+		public List <Store> getStoreByZip(String zip){
+			List<Store> storeList = new ArrayList();
+			try{
+				SQLiteDatabase db = this.getReadableDatabase();
+				Cursor cursor = db.query(TABLE_STORES, new String[]{
+						KEY_STOREID,KEY_STORENAME,KEY_ADDRESS,KEY_MAILINGCITY,KEY_STATE,KEY_ZIP,
+						KEY_MUNICIPALITY,KEY_CORPID,KEY_NEIGHBORHOOD,KEY_BUSINESSPHONE,KEY_ALTERNATEPHONE,
+						KEY_PRICE_VERIFICATION,KEY_PRICE_VERDUEDATE,KEY_FUELDISPENSER,KEY_FUELDUEDATE,
+						KEY_SCALE,KEY_SCALEDUEDATE,KEY_TIMING,KEY_TIMINGDUEDATE,KEY_MISCINSPECTION,
+						KEY_MISCDUEDATE, KEY_FEE,KEY_OOB, KEY_REMARKS, KEY_NEWADDRESS, KEY_NEWMUNICIPALITY},
+						KEY_ZIP+"=?",new String[]{zip},null,null,null,null);
+				if(cursor.moveToFirst()){
+					do{
+						Store response = new Store(cursor.getString(0),cursor.getString(1), 
+								cursor.getString(2),cursor.getString(3),cursor.getString(4),
+								cursor.getString(5),cursor.getString(6),cursor.getString(7),
+								cursor.getString(8),cursor.getString(9),cursor.getString(10),
+								cursor.getString(11),cursor.getString(12),cursor.getString(13),
+								cursor.getString(14),cursor.getString(15),cursor.getString(16),
+								cursor.getString(17),cursor.getString(18),cursor.getString(19),
+								cursor.getString(20),cursor.getString(21),cursor.getString(22),
+								cursor.getString(23),cursor.getString(24),cursor.getString(25));
+						
+						//Adding contact to list
+						storeList.add(response);
+					}while(cursor.moveToNext());
+				}
+				
+				
+				return storeList;
+			}catch(CursorIndexOutOfBoundsException e){
+				return null;
+			}
+			
+		}
+	
+	
+	//Getting All Stores
 	public List<Store> getAllStores(){
 		
 		List<Store> storeList = new ArrayList();

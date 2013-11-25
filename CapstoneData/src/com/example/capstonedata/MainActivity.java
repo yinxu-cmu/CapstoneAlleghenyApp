@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Iterator;
+import java.util.List;
 
 import android.app.Activity;
 import android.content.res.Resources;
@@ -47,6 +49,7 @@ public class MainActivity extends Activity {
 		Button goStore = (Button) findViewById(R.id.button2);
 		Button reset = (Button) findViewById(R.id.button3);
 		Button user = (Button) findViewById(R.id.button4);
+		Button zip = (Button) findViewById(R.id.button5);
 		
 		//get new object of the used databases
 		dh = new DeviceHandler(this);
@@ -91,6 +94,12 @@ public class MainActivity extends Activity {
 			}
 		});
 		
+		zip.setOnClickListener(new OnClickListener(){
+			public void onClick(View viewParam){
+				findByZip();
+			}
+		});
+		
 		
 		//StoreHandler sh = new StoreHandler(this);
 	}
@@ -121,6 +130,32 @@ public class MainActivity extends Activity {
 		
 	}
 	
+	public void findByZip(){
+		String zip = et.getText().toString();
+		Log.w("TEST","get Stores by zip");
+		List <Store> storeList = sh.getStoreByZip(zip);
+		Log.w("TEST","storelist size "+storeList.size());
+		Store store;
+		Log.w("TEST","start zip");
+		if(storeList != null){
+			StringBuilder sb = new StringBuilder();
+			Iterator i = storeList.iterator();
+			Log.w("TEST","start while");
+			while(i.hasNext()){
+				Log.w("TEST","while iteration");
+				store = (Store)i.next();
+				Log.w("stores",store.getStoreID()+" "+store.getStoreName()+" "+store.getZip()+store.getAddress());
+				sb.append(store.getStoreName()+" "+store.getZip()+"\n");
+			}
+			String output = sb.toString();
+			Log.w("OUTPUT", sb.toString());
+			tv.setText(output);
+		}else{
+			tv.setText("no store by that zip");
+		}
+		
+	}
+	
 	public void findUser(){
 		User user = uh.getUser(et.getText().toString());
 		if(user != null){
@@ -130,6 +165,8 @@ public class MainActivity extends Activity {
 		}
 		
 	}
+	
+
 	
 	private void loadUsers(){
 		User user = new User("12345","test");

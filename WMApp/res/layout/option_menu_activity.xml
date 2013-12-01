@@ -13,16 +13,20 @@
         android:orientation="vertical" >
 
         <Button
-            android:id="@+id/scan_barcode"
+            android:id="@+id/check_pump"
             android:layout_width="110dp"
             android:layout_height="106dp"
-            android:text="@string/scan_barcode" />
+            android:text="@string/check_pump"
+            android:textStyle="bold"
+            android:textColor="#eec900" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="110dp"
             android:layout_height="106dp"
-            android:text="Button" />
+            android:text="Complaint Received" 
+            android:textStyle="bold"
+            android:textColor="#eec900"/>
     </LinearLayout>
 
     <LinearLayout
@@ -38,13 +42,17 @@
             android:id="@+id/button2"
             android:layout_width="110dp"
             android:layout_height="106dp"
-            android:text="Button" />
+            android:text="Check Scale" 
+            android:textStyle="bold"
+            android:textColor="#eec900"/>
 
         <Button
             android:id="@+id/button1"
             android:layout_width="110dp"
             android:layout_height="106dp"
-            android:text="Button" />
+            android:text="Check Scanner" 
+            android:textStyle="bold"
+            android:textColor="#eec900"/>
     </LinearLayout>
 
 </RelativeLayout>

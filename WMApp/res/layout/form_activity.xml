@@ -1,157 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background_bluegradient" >
+
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_bluegradient"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true" >
+<!-- 
+    <ScrollView
+        android:id="@+id/view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" > -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_bluegradient"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp" >
+
+                <TextView
+                    android:id="@+id/form_station"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/form_station" />
+
+                <EditText
+                    android:id="@+id/form_station_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:textColor="#eec900"
+                    android:textCursorDrawable="@null" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/linearLayout1"
+                android:layout_marginTop="30dp" >
+
+                <TextView
+                    android:id="@+id/form_addr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/form_addr" />
+
+                <EditText
+                    android:id="@+id/form_addr_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:textCursorDrawable="@null"
+                    android:textColor="#eec900" >
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/linearLayout2"
+                android:layout_marginTop="48dp" >
+
+                <TextView
+                    android:id="@+id/form_zip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/form_zip" />
+
+                <EditText
+                    android:id="@+id/form_zip_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:textCursorDrawable="@null"
+                    android:textColor="#eec900" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/linearLayout3"
+                android:layout_marginTop="26dp" >
+
+                <TextView
+                    android:id="@+id/form_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/form_phone" />
+
+                <EditText
+                    android:id="@+id/form_phone_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:lines="1"
+                    android:textCursorDrawable="@null"
+                    android:inputType="phone"
+                    android:textColor="#eec900" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/linearLayout4"
+                android:layout_marginTop="22dp" >
+
+                <TextView
+                    android:id="@+id/form_storeId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/form_storeId" />
+
+                <EditText
+                    android:id="@+id/form_storeId_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:textCursorDrawable="@null" 
+                    android:textColor="#eec900"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/linearLayout1"
+                android:layout_marginTop="34dp" >
+
+                <TextView
+                    android:id="@+id/form_city_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/form_city_state" />
+
+                <EditText
+                    android:id="@+id/form_city_state_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:textCursorDrawable="@null" 
+                    android:textColor="#eec900"/>
+            </LinearLayout>
+        </LinearLayout>
+   <!--  </ScrollView> -->
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/background_bluegradient"
-        android:orientation="vertical" >
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/form_btn_return"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:layout_weight="2"
+            android:text="@string/form_return"
+            android:textStyle="bold"
+            android:textColor="#eec900" />
 
-            <TextView
-                android:id="@+id/form_station"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/form_station" />
-
-            <EditText
-                android:id="@+id/form_station_input"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="text"
-                android:lines="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout1"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/form_btn_scan_pump"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/linearLayout1"
-            android:layout_marginTop="30dp" >
-
-            <TextView
-                android:id="@+id/form_addr"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/form_addr" />
-
-            <EditText
-                android:id="@+id/form_addr_input"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="text"
-                android:lines="1" >
-
-                <requestFocus />
-            </EditText>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/linearLayout2"
-            android:layout_marginTop="48dp" >
-
-            <TextView
-                android:id="@+id/form_zip"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/form_zip" />
-
-            <EditText
-                android:id="@+id/form_zip_input"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="text"
-                android:lines="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/linearLayout3"
-            android:layout_marginTop="26dp" >
-
-            <TextView
-                android:id="@+id/form_phone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/form_phone" />
-
-            <EditText
-                android:id="@+id/form_phone_input"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="text"
-                android:lines="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/linearLayout4"
-            android:layout_marginTop="22dp" >
-
-            <TextView
-                android:id="@+id/form_storeId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/form_storeId" />
-
-            <EditText
-                android:id="@+id/form_storeId_input"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="text"
-                android:lines="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/linearLayout1"
-            android:layout_marginTop="34dp" >
-
-            <TextView
-                android:id="@+id/form_city_state"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/form_city_state" />
-
-            <EditText
-                android:id="@+id/form_city_state_input"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="text"
-                android:lines="1" />
-        </LinearLayout>
+            android:layout_weight="2"
+            android:text="@string/form_scan_pump"
+            android:textStyle="bold"
+            android:textColor="#eec900" >
+        </Button>
     </LinearLayout>
 
-</FrameLayout>
+</RelativeLayout>

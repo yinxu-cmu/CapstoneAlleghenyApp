@@ -10,7 +10,7 @@
     <string name="insert_valid_data">Please insert valid data</string>
     <string name="login_success">Login Successful</string>
     <string name="login_fail">Login Failed</string>
-    <string name="scan_barcode">Scan Barcode</string>
+    <string name="check_pump">Check Pump</string>
     <string name="option1">Option1</string>
     <string name="option2">Option2</string>
     <string name="option3">Option3</string>
@@ -20,5 +20,24 @@
     <string name="form_zip">ZIP</string>
     <string name="form_phone">Phone</string>
     <string name="form_storeId">Store ID</string>
+    <string name="form_submit">Submit</string>
+    <string name="form_return">Return</string>
+    <string name="form_next_pump">Next Pump</string>
+    <string name="form_scan_pump">Scan Pump</string>
+    <string name="check_pump_dialog_text">Choose a way to check pumps</string>
+    <string name="manual_input_text">Input Device ID</string>
+    <string name="locator_text">Locate the target station</string>
+    
+    <string-array name="action_arrays">
+        <item>APPR.</item>
+        <item>ADJ.</item>
+        <item>REJ.</item>
+    </string-array>
+    <string name="action_prompt">Choose an action</string>
+    <string name="device_submit">Submit</string>
+    <string name="device_next_pump">Next Pump</string>
+    
+    <string name="hello">Capture Signature Test</string>
+    <string name="external_dir">GetSignature</string>
 
 </resources>

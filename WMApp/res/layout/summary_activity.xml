@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_bluegradient"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/summary_activity_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#eec900"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/summary_btn_sign"
+        android:layout_width="176dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/summary_activity_text"
+        android:layout_weight="2"
+        android:text="Sign the Form"
+        android:textColor="#eec900"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/summary_btn_email"
+        android:layout_width="176dp"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/summary_btn_sign"
+        android:layout_below="@+id/summary_btn_sign"
+        android:layout_marginTop="26dp"
+        android:text="Email the Report"
+        android:textColor="#eec900"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/summary_btn_main"
+        android:layout_width="176dp"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/summary_btn_email"
+        android:layout_below="@+id/summary_btn_email"
+        android:layout_marginTop="24dp"
+        android:text="Main Menu"
+        android:textColor="#eec900"
+        android:textStyle="bold" />
+
+</RelativeLayout>

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_bluegradient"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true" >
+
+    <TextView
+        android:id="@+id/device_activity_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="DESCRIPTION OF EQUIPMENT"
+        android:textColor="#eec900"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/device_activity_description"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/device_activity_makeofpump"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MAKE OF PUMP" />
+
+        <EditText
+            android:id="@+id/device_activity_makeofpump_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#eec900" >
+
+            <requestFocus />
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout1"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/device_activity_sn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SERIAL NUMBER" />
+
+        <EditText
+            android:id="@+id/device_activity_sn_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:textColor="#eec900" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout2"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/device_activity_pumpnumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PUMP #" />
+
+        <EditText
+            android:id="@+id/device_activity_pumpnumber_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:textColor="#eec900" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        android:layout_below="@+id/linearLayout3"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/device_activity_brandofgas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BRAND OF GAS" />
+
+        <EditText
+            android:id="@+id/device_activity_brandofgas_input"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#eec900" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout4"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/device_activity_gallonsdrawn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GALLONS DRAWN" />
+
+        <EditText
+            android:id="@+id/device_activity_gallonsdrawn_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:textColor="#eec900" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout5"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/device_activity_errorfast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ERROR +- FAST" />
+
+        <EditText
+            android:id="@+id/device_activity_errorfast_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:textColor="#eec900" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        android:layout_below="@+id/linearLayout6"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/device_activity_errorslow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ERROR +- SLOW" />
+
+        <EditText
+            android:id="@+id/device_activity_errorslow_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:textColor="#eec900" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/linearLayout8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        android:layout_below="@+id/linearLayout7"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/device_activity_toltable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TOL. TABLE" />
+
+        <EditText
+            android:id="@+id/device_activity_toltable_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#eec900" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/device_activity_actiondes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        android:layout_below="@+id/linearLayout8"
+        android:text="ACTION TAKEN"
+        android:textColor="#eec900"
+        android:textSize="18sp" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/device_activity_actiondes"
+        android:layout_below="@+id/device_activity_actiondes"
+        android:entries="@array/action_arrays"
+        android:prompt="@string/action_prompt" />
+    
+    <LinearLayout
+        android:id="@+id/linearLayout9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/spinner1"
+        android:layout_below="@+id/spinner1"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/device_activity_remarks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="REMARKS" />
+
+        <EditText
+            android:id="@+id/device_activity_remarks_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#eec900" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+
+        <Button
+            android:id="@+id/device_btn_submit"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/device_submit"
+            android:textStyle="bold"
+            android:textColor="#eec900" />
+
+        <Button
+            android:id="@+id/device_btn_next_pump"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/device_next_pump"
+            android:textStyle="bold"
+            android:textColor="#eec900" >
+        </Button>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -9,21 +9,9 @@
         android:id="@+id/summary_activity_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text=" "
         android:textColor="#eec900"
         android:textSize="18sp" />
-
-    <Button
-        android:id="@+id/summary_btn_sign"
-        android:layout_width="176dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/summary_activity_text"
-        android:layout_weight="2"
-        android:text="Sign the Form"
-        android:textColor="#eec900"
-        android:textStyle="bold" />
 
     <Button
         android:id="@+id/summary_btn_email"
@@ -44,6 +32,29 @@
         android:layout_below="@+id/summary_btn_email"
         android:layout_marginTop="24dp"
         android:text="Main Menu"
+        android:textColor="#eec900"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/summary_btn_viewreport"
+        android:layout_width="176dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/summary_activity_text"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="2"
+        android:text="Report Preview"
+        android:textColor="#eec900"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/summary_btn_sign"
+        android:layout_width="176dp"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/summary_btn_viewreport"
+        android:layout_below="@+id/summary_btn_viewreport"
+        android:layout_marginTop="26dp"
+        android:layout_weight="2"
+        android:text="Sign the Form"
         android:textColor="#eec900"
         android:textStyle="bold" />
 

@@ -61,6 +61,10 @@ public class FormActivity extends Activity{
 		sh = new StoreHandler(this);
 		store = sh.getStore(bundle1.getString("storeId"));
 		
+		if (store == null) {
+			store = new Store();
+		}
+		
 		station.setText(store.getStoreName());
 		address.setText(store.getAddress());
 		cityState.setText(store.getMunicipality() +" "+ store.getState());

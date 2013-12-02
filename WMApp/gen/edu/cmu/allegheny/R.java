@@ -217,7 +217,7 @@ containing a value of this type.
         public static final int seal=0x7f020022;
     }
     public static final class id {
-        public static final int action_settings=0x7f060057;
+        public static final int action_settings=0x7f060058;
         public static final int button1=0x7f060049;
         public static final int button2=0x7f060048;
         public static final int button4=0x7f060047;
@@ -294,9 +294,10 @@ containing a value of this type.
         public static final int satellite=0x7f060002;
         public static final int spinner1=0x7f060022;
         public static final int summary_activity_text=0x7f060053;
-        public static final int summary_btn_email=0x7f060055;
+        public static final int summary_btn_email=0x7f060054;
         public static final int summary_btn_main=0x7f060056;
-        public static final int summary_btn_sign=0x7f060054;
+        public static final int summary_btn_sign=0x7f060055;
+        public static final int summary_btn_viewreport=0x7f060057;
         public static final int tableLayout1=0x7f06004d;
         public static final int tableRow1=0x7f06004e;
         public static final int tableRow3=0x7f060051;

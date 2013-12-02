@@ -64,7 +64,7 @@ int drawable ic_plusone_standard_off_client 0x7f02001f
 int drawable ic_plusone_tall_off_client 0x7f020020
 int drawable pwd_btn_bkgnd 0x7f020021
 int drawable seal 0x7f020022
-int id action_settings 0x7f060057
+int id action_settings 0x7f060058
 int id button1 0x7f060049
 int id button2 0x7f060048
 int id button4 0x7f060047
@@ -141,9 +141,10 @@ int id passwordEdTxt 0x7f06003f
 int id satellite 0x7f060002
 int id spinner1 0x7f060022
 int id summary_activity_text 0x7f060053
-int id summary_btn_email 0x7f060055
+int id summary_btn_email 0x7f060054
 int id summary_btn_main 0x7f060056
-int id summary_btn_sign 0x7f060054
+int id summary_btn_sign 0x7f060055
+int id summary_btn_viewreport 0x7f060057
 int id tableLayout1 0x7f06004d
 int id tableRow1 0x7f06004e
 int id tableRow3 0x7f060051

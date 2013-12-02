@@ -164,7 +164,8 @@ public class FormHandler extends SQLiteOpenHelper{
 			}while(cursor.moveToNext());
 		}
 		
-		
+		cursor.close();
+		db.close();
 		return FormLineList;
 		
 	}

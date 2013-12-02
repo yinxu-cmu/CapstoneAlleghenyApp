@@ -2,11 +2,15 @@ package edu.cmu.allegheny.activities;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Calendar;
+
+import com.itextpdf.text.DocumentException;
 
 import edu.cmu.allegheny.R;
 import edu.cmu.allegheny.R.id;
 import edu.cmu.allegheny.R.layout;
+import edu.cmu.allegheny.util.PDFGenerator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
@@ -47,12 +51,17 @@ public class CaptureSignatureActivity extends Activity {
 
 	private String uniqueId;
 	private EditText yourName;
+	
+	private String storeId;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.signature);
+		
+		Bundle bundle1 = this.getIntent().getExtras();
+		storeId = bundle1.getString("storeId");
 
 		tempDir = Environment.getExternalStorageDirectory() + "/"
 				+ getResources().getString(R.string.external_dir) + "/";
@@ -131,6 +140,25 @@ public class CaptureSignatureActivity extends Activity {
 	protected void onDestroy() {
 		Log.w("GetSignature", "onDestory");
 		super.onDestroy();
+	}
+	
+	@Override
+	protected void onStop() {
+		super.onStop();
+		try {
+			Log.d("test", "here");
+			String sigPath = "/mnt/sdcard/download/report_signature.png";
+			
+				Log.d("PDF", "going to gen a signed one");
+				PDFGenerator report = new PDFGenerator(storeId, sigPath, getApplicationContext());
+				
+			} catch (DocumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 
 	private boolean captureSignature() {

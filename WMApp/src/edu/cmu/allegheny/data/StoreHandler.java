@@ -168,9 +168,11 @@ public class StoreHandler extends SQLiteOpenHelper{
 	//Getting all stores in a zipcode
 		public List <Store> getStoreByZip(String zip){
 			List<Store> storeList = new ArrayList();
+			SQLiteDatabase db = null;
+			Cursor cursor = null; 
 			try{
-				SQLiteDatabase db = this.getReadableDatabase();
-				Cursor cursor = db.query(TABLE_STORES, new String[]{
+				db = this.getReadableDatabase();
+				cursor = db.query(TABLE_STORES, new String[]{
 						KEY_STOREID,KEY_STORENAME,KEY_ADDRESS,KEY_MAILINGCITY,KEY_STATE,KEY_ZIP,
 						KEY_MUNICIPALITY,KEY_CORPID,KEY_NEIGHBORHOOD,KEY_BUSINESSPHONE,KEY_ALTERNATEPHONE,
 						KEY_PRICE_VERIFICATION,KEY_PRICE_VERDUEDATE,KEY_FUELDISPENSER,KEY_FUELDUEDATE,
@@ -193,11 +195,18 @@ public class StoreHandler extends SQLiteOpenHelper{
 						storeList.add(response);
 					}while(cursor.moveToNext());
 				}
-				db.close();
 				
 				return storeList;
 			}catch(CursorIndexOutOfBoundsException e){
+				
 				return null;
+			}finally{
+				if (db != null) {
+					db.close();
+				}
+				if (cursor != null) {
+					cursor.close();
+				}
 			}
 			
 		}

@@ -71,7 +71,6 @@ public class CheckPumpActivity extends Activity{
 				AlertDialog.Builder builder = new Builder(CheckPumpActivity.this);
 				builder.setTitle("Input Device ID");
 				builder.setIcon(android.R.drawable.ic_dialog_info);
-//				builder.setView(new EditText(mContext));
 				builder.setView(layout);
 				
 				final EditText deviceId = (EditText) layout.findViewById(R.id.manual_input_deviceId);
@@ -83,7 +82,7 @@ public class CheckPumpActivity extends Activity{
 						// get the EditText value
 						String sDeviceId = deviceId.getText().toString();
 						
-						Intent formIntent = new Intent(CheckPumpActivity.this, FormActivity.class);
+						Intent formIntent = new Intent(CheckPumpActivity.this, DeviceActivity.class);
 						Bundle bundle = new Bundle();
 						bundle.putString("barcode_result", sDeviceId);
 						formIntent.putExtras(bundle);

@@ -89,25 +89,21 @@ public class DeviceActivity extends Activity{
 		Bundle bundle1 = this.getIntent().getExtras();
 		deviceId = bundle1.getString("barcode_result");
 		
-		//set a default device for demo purpose
-		if (deviceId == null) {
-			deviceId = "40";
-		}
-		
-//		Log.d("DEVICE", deviceId);
-		brandOfGas.setText(deviceId);
-		
 		dh = new DeviceHandler(this);
 		fh = new FormHandler(this);
 		
-		Log.d("DEVICE", "going to search device");
-		device = dh.getDevice(deviceId);
-		Log.d("DEVICE", "search device done");
-		
 		//set a default device for demo purpose
-		if(device == null) {
-			device = dh.getDevice("40");
+		Log.d("DEVICE", "going to search device");
+		if (deviceId == null || (device = dh.getDevice(deviceId)) == null) {
+			deviceId = "0000"; //represents a new device
+			//set an empty device
+			device = new Device();
 		}
+		
+		brandOfGas.setText(deviceId);
+		
+//		device = dh.getDevice(deviceId);
+		Log.d("DEVICE", "search device done");
 		
 		//set views
 		makeOfPump.setText(device.getMake());

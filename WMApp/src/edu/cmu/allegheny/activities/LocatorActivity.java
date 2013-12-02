@@ -41,8 +41,10 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 /**
@@ -62,48 +64,120 @@ public class LocatorActivity extends FragmentActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+//		super.onCreate(savedInstanceState);
+//		setContentView(R.layout.locator_activity);
+//		
+//		// Data Transaction
+//		sh = new StoreHandler(this);
+//
+//		// getting google map object
+//		SupportMapFragment mapFragment = 
+//				(SupportMapFragment) getSupportFragmentManager()
+//				.findFragmentById(R.id.locator_map);
+//		map = mapFragment.getMap();
+//		final LocationManager locManager = 
+//				(LocationManager) getSystemService(LOCATION_SERVICE);
+//		// getting a Criteria object to retrieve provide
+//		final Criteria criteria = new Criteria();
+//		// getting the name of the best provider
+//		String provider = locManager.getBestProvider(criteria, true);
+//		// getting current location
+//		Location location = locManager.getLastKnownLocation(provider);
+//
+//		
+//		if (location != null) {
+//			Log.d("MAP", "Location found!");
+//			map.clear();
+//			try {
+//				getZipCode(location);
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//				Log.d("MAP", "can't get zip with location");
+////				ifError();
+//				zipCode = "15217";
+//				
+//			}
+//
+//		} else {
+//			Log.d("MAP", "can't get location");
+////			ifError();
+//			zipCode = "15217";
+//		}
+//		
+//		try {
+//			putMultiMarkers();
+//		} catch (Exception e) {
+//			AlertDialog.Builder builder = new Builder(LocatorActivity.this);
+//			builder.setMessage("Please try again");
+//			builder.show();
+//		}
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.locator_activity);
-		
-		// Data Transaction
-		sh = new StoreHandler(this);
+        setContentView(R.layout.locator_activity);
+        
+        // Data Transaction
+        sh = new StoreHandler(this);
 
-		// getting google map object
-		SupportMapFragment mapFragment = 
-				(SupportMapFragment) getSupportFragmentManager()
-				.findFragmentById(R.id.locator_map);
-		map = mapFragment.getMap();
-		final LocationManager locManager = 
-				(LocationManager) getSystemService(LOCATION_SERVICE);
-		// getting a Criteria object to retrieve provide
-		final Criteria criteria = new Criteria();
-		// getting the name of the best provider
-		String provider = locManager.getBestProvider(criteria, true);
-		// getting current location
-		Location location = locManager.getLastKnownLocation(provider);
+        // getting google map object
+        SupportMapFragment mapFragment = 
+                        (SupportMapFragment) getSupportFragmentManager()
+                        .findFragmentById(R.id.locator_map);
+        map = mapFragment.getMap();
+        final LocationManager locManager = 
+                        (LocationManager) getSystemService(LOCATION_SERVICE);
+        // getting a Criteria object to retrieve provide
+        final Criteria criteria = new Criteria();
+        // getting the name of the best provider
+        String provider = locManager.getBestProvider(criteria, true);
+        // getting current location
+        Location location = locManager.getLastKnownLocation(provider);
 
-		if (location != null) {
-			Log.d("MAP", "Location found!");
-			map.clear();
-			try {
-				getZipCode(location);
-				putMultiMarkers();
+        if (location != null) {
+                Log.d("MAP", "Location found!");
+                map.clear();
+                try {
+                        getZipCode(location);
+                        putMultiMarkers();
 
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				AlertDialog.Builder builder = new Builder(LocatorActivity.this);
-				builder.setMessage("GPS is not working. Please try again.");
-				builder.show();
-			}
+                } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+//                        AlertDialog.Builder builder = new Builder(LocatorActivity.this);
+//                        builder.setMessage("GPS is not working. Please try again.");
+//                        builder.show();
+                        LayoutInflater inflater = LocatorActivity.this.getLayoutInflater();
+                        View layout=inflater.inflate(R.layout.manual_input_dialog, null); 
+                		
+                		AlertDialog.Builder builder = new Builder(LocatorActivity.this);
+                		builder.setTitle("Location unavailable. Input Zip:");
+                		builder.setIcon(android.R.drawable.ic_dialog_info);
+                		builder.setView(layout);
+                		
+                		final EditText zipET = (EditText) layout.findViewById(R.id.manual_input_deviceId);
+                		
+                		builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                			
+                			@Override
+                			public void onClick(DialogInterface dialog, int which) {
+                				// get the EditText value
+                				zipCode = zipET.getText().toString();
+                				try {
+									putMultiMarkers();
+								} catch (IOException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+                			}
+                		});
+                		builder.setNegativeButton("Cancel", null);
+                		builder.show();
+                }
 
-			// putMarker(location);
 
-		} else {
-			AlertDialog.Builder builder = new Builder(LocatorActivity.this);
-			builder.setMessage("Location currently unavailable.");
-			builder.show();
-		}
+        } else {
+                AlertDialog.Builder builder = new Builder(LocatorActivity.this);
+                builder.setMessage("Please try again.");
+                builder.show();
+        }
 	}
 
 	/**
@@ -244,6 +318,33 @@ public class LocatorActivity extends FragmentActivity {
 		return true;
 	}
 	
+	/**
+	 * return manually input zipcode
+	 * @return
+	 */
+	public void ifError() {
+		LayoutInflater inflater = LocatorActivity.this.getLayoutInflater();
+        View layout=inflater.inflate(R.layout.manual_input_dialog, null); 
+		
+		AlertDialog.Builder builder = new Builder(LocatorActivity.this);
+		builder.setTitle("Location unavailable. Input Zip:");
+		builder.setIcon(android.R.drawable.ic_dialog_info);
+		builder.setView(layout);
+		
+		final EditText zipET = (EditText) layout.findViewById(R.id.manual_input_deviceId);
+		
+		builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// get the EditText value
+				zipCode = zipET.getText().toString();
+				
+			}
+		});
+		builder.setNegativeButton("Cancel", null);
+		builder.show();
+	}
 	
 	
 	

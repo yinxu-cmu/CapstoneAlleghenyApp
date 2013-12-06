@@ -220,6 +220,10 @@ public class SummaryActivity extends Activity {
 	 */
 	public void sendEmail(String addr) {
 		try {
+			//clear the form table first
+			FormHandler fh = new FormHandler(getApplicationContext());
+			fh.onUpgrade(fh.getWritableDatabase(), fh.getVersion(), fh.getVersion()+1);
+			//
             String email = addr;
             String subject = "Summary Report";
             String message = "Weights and Measures Report " + new Date();

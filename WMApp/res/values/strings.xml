@@ -23,7 +23,7 @@
     <string name="form_submit">Submit</string>
     <string name="form_return">Return</string>
     <string name="form_next_pump">Next Pump</string>
-    <string name="form_scan_pump">Scan Pump</string>
+    <string name="form_scan_pump">Check Pump</string>
     <string name="check_pump_dialog_text">Choose a way to check pumps</string>
     <string name="manual_input_text">Input Device ID</string>
     <string name="locator_text">Locate the target station</string>

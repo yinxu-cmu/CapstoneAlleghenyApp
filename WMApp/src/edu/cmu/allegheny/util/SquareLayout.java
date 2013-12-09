@@ -5,6 +5,7 @@ package edu.cmu.allegheny.util;
 
 /**
  * A customized LinerLayout
+ * 
  * @author yinxu
  *
  */

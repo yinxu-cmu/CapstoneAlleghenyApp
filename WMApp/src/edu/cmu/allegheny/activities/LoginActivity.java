@@ -28,6 +28,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/**
+ * The main Activity of AlleghenyWM App. It displays a Login interface.
+ * The login function is performed locally, no remote credential verification is
+ * used in the current implementation.
+ * 
+ * Default credential:
+ * username: 123
+ * password: pwd
+ * 
+ * @author yinxu
+ *
+ */
 @SuppressLint("NewApi")
 public class LoginActivity extends Activity {
 	
@@ -55,16 +67,6 @@ public class LoginActivity extends Activity {
 		userNameEText.setCursorVisible(true);
 		passwordEText.setCursorVisible(true);
 		userNameEText.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
-		
-		//hide status bar
-//		View decorView = getWindow().getDecorView();
-//		// Hide the status bar.
-//		int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-//		decorView.setSystemUiVisibility(uiOptions);
-//		// Remember that you should never show the action bar if the
-//		// status bar is hidden, so hide that too if necessary.
-//		ActionBar actionBar = getActionBar();
-//		actionBar.hide();
 		
 		//config data handler
 		//initiates databases w data if no data exists
@@ -142,16 +144,9 @@ public class LoginActivity extends Activity {
 		
 		return false;
 	}
-
-//	@Override
-//	public boolean onCreateOptionsMenu(Menu menu) {
-//		// Inflate the menu; this adds items to the action bar if it is present.
-//		getMenuInflater().inflate(R.menu.login, menu);
-//		return true;
-//	}
 	
 	/**
-	 * load user?
+	 * load user
 	 */
 	private void loadUsers(){
 		User user = new User("123","pwd");

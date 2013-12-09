@@ -42,6 +42,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
+ * When all pump checking is done, users will be directed to SummaryActivity where
+ * they can: 
+ * 1. review the measurement result;
+ * 2. sign the summary report;
+ * 3. email the report to specified addresses.
+ * 
+ * Note: 
+ * 1. the Summary PDF report is generated when users entering into SummaryActivity.
+ * 2. The default path for the report is hardcoding: /mnt/sdcard/download/Summary_Report.pdf
+ * 
  * @author yinxu
  * 
  */
@@ -59,20 +69,14 @@ public class SummaryActivity extends Activity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		// File file = new File(this.getCacheDir(), "Summary_Report");
-		
 
 		super.onCreate(savedInstanceState);
-		// mContext = this;
 		setContentView(R.layout.summary_activity);
 
-		text = (TextView) findViewById(R.id.summary_activity_text);
 		signBtn = (Button) findViewById(R.id.summary_btn_sign);
 		emailBtn = (Button) findViewById(R.id.summary_btn_email);
 		mainBtn = (Button) findViewById(R.id.summary_btn_main);
 		previewBtn = (Button) findViewById(R.id.summary_btn_viewreport);
-
-//		text.setText(path);
 
 		// get the storeID
 		Bundle bundle1 = this.getIntent().getExtras();
@@ -90,7 +94,7 @@ public class SummaryActivity extends Activity {
 	}
 
 	/**
-	 * set listeners
+	 * set listeners for buttons.
 	 */
 	public void setListeners() {
 		previewBtn.setOnClickListener(new OnClickListener() {
@@ -133,12 +137,8 @@ public class SummaryActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				// Intent emailIntent = new Intent(SummaryActivity.this,
-				// MailActivity.class);
-				// startActivity(emailIntent);
 
-				// modify start here
+				// Popup email input dialoge
 				LayoutInflater inflater = SummaryActivity.this.getLayoutInflater();
 				View layout = inflater.inflate(R.layout.manual_input_dialog,
 						null);
@@ -162,14 +162,6 @@ public class SummaryActivity extends Activity {
 								// get the EditText value
 								String emailAddrStr = emailAddr.getText()
 										.toString();
-
-//								Intent formIntent = new Intent(
-//										CheckPumpActivity.this,
-//										FormActivity.class);
-//								Bundle bundle = new Bundle();
-//								bundle.putString("barcode_result", sDeviceId);
-//								formIntent.putExtras(bundle);
-//								startActivity(formIntent);
 								
 								sendEmail(emailAddrStr);
 								
@@ -177,7 +169,6 @@ public class SummaryActivity extends Activity {
 						});
 				builder.setNegativeButton("Cancel", null);
 				builder.show();
-				// end =here
 			}
 		});
 
@@ -194,7 +185,7 @@ public class SummaryActivity extends Activity {
 	}
 
 	/**
-	 * after sign do this
+	 * called after signing the signature.
 	 */
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		switch (requestCode) {
@@ -216,7 +207,7 @@ public class SummaryActivity extends Activity {
 	}
 	
 	/**
-	 * send email
+	 * send out an email with the summary report attached.
 	 */
 	public void sendEmail(String addr) {
 		try {

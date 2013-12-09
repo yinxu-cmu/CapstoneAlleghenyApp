@@ -24,7 +24,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 /**
- *
+ * Deprecated class.
+ * The source code of MailActivity is download from the Internet with rare modification.
+ * 
  * @author manish
  *
  */

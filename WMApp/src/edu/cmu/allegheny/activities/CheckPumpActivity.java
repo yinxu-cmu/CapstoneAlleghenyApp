@@ -24,6 +24,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
+ * This class performs the pump checking operation. It gives users two options:
+ * 1. Manually input the barcode of a pump to retrieve pump info from database;
+ * 2. Use the barcode scanner to retrieve pump info from database.
+ * 
+ * The barcode scanner is based on ZXing Library, a third party software.
+ * 
  * @author yinxu
  *
  */
@@ -32,7 +38,6 @@ public class CheckPumpActivity extends Activity{
 	private Context mContext;
 	//Views
 	private TextView text;
-	private Button dialogButton1;
 	private Button dialogButton2;
 	private Button dialogButton3;
 
@@ -49,21 +54,15 @@ public class CheckPumpActivity extends Activity{
 		setListeners();
 	}
 	
+	/**
+	 * set listeners for the view
+	 */
 	public void setListeners() {
 		
-//		dialogButton1.setOnClickListener(new OnClickListener() {
-//			@Override
-//			public void onClick(View v) {
-////				dismiss();
-//				//start gps locator
-//				//For Future Usage
-//			}
-//		});
 		
 		dialogButton2.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-//				dismiss();
 				//start manual input
 				LayoutInflater inflater = CheckPumpActivity.this.getLayoutInflater();
 		        View layout=inflater.inflate(R.layout.manual_input_dialog, null); 
@@ -97,10 +96,7 @@ public class CheckPumpActivity extends Activity{
 		dialogButton3.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-//				dismiss();
-				//start barcode scan
-				//Toast.makeText(mContext, "start barcode scanner", Toast.LENGTH_SHORT).show();
-				//instantiate ZXing integration class
+				
 				IntentIntegrator scanIntegrator = new IntentIntegrator(CheckPumpActivity.this);
 				//start scanning
 				scanIntegrator.initiateScan();
@@ -108,6 +104,9 @@ public class CheckPumpActivity extends Activity{
 		});
 	}
 	
+	/**
+	 * return the barcode scanning result.
+	 */
 	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 		//retrieve result of scanning - instantiate ZXing object
 		IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);

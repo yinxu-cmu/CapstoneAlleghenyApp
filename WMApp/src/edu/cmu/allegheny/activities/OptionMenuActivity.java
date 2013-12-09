@@ -24,7 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * After login, user will be directed to OptionMenu Activity where he 
+ * After login, users will be directed to OptionMenu Activity where they 
  * can select the next step.
  *  
  * @author yinxu
@@ -65,53 +65,6 @@ public class OptionMenuActivity extends Activity{
 				// TODO Auto-generated method stub
 				Log.d("Menu", "check pump is clicked");
 				
-//				// pop out the check_pump_dialog here
-//				final Dialog dialog = new Dialog(OptionMenuActivity.this);
-//				dialog.setContentView(R.layout.check_pump_dialog);
-//				dialog.setTitle("Choose a way to check pumps");
-//	 
-//				// set the custom dialog components - text, image and button
-//				TextView text = (TextView) dialog.findViewById(R.id.check_pump_dialog_text);
-//				text.setText("Android custom dialog example!");
-////				ImageView image = (ImageView) dialog.findViewById(R.id.check_pump_dialog_image);
-////				image.setImageResource(R.drawable.seal);
-//	 
-//				Button dialogButton1 = (Button) dialog.findViewById(R.id.check_pump_gps);
-//				Button dialogButton2 = (Button) dialog.findViewById(R.id.check_pump_dialog_input_barcode);
-//				Button dialogButton3 = (Button) dialog.findViewById(R.id.check_pump_dialog_scan_barcode);
-//				
-//				// if button is clicked, close the custom dialog
-//				dialogButton1.setOnClickListener(new OnClickListener() {
-//					@Override
-//					public void onClick(View v) {
-//						dialog.dismiss();
-//						//start gps locator
-//					}
-//				});
-//				
-//				dialogButton2.setOnClickListener(new OnClickListener() {
-//					@Override
-//					public void onClick(View v) {
-//						dialog.dismiss();
-//						//start manual input
-//					}
-//				});
-//				
-//				dialogButton3.setOnClickListener(new OnClickListener() {
-//					@Override
-//					public void onClick(View v) {
-//						dialog.dismiss();
-//						//start barcode scan
-//						//Toast.makeText(mContext, "start barcode scanner", Toast.LENGTH_SHORT).show();
-//						//instantiate ZXing integration class
-//						IntentIntegrator scanIntegrator = new IntentIntegrator(OptionMenuActivity.this);
-//						//start scanning
-//						scanIntegrator.initiateScan();
-//					}
-//				});
-//	 
-//				dialog.show();
-				
 				
 				// new version: start gps
 				pDialog = new ProgressDialog(OptionMenuActivity.this);
@@ -126,6 +79,9 @@ public class OptionMenuActivity extends Activity{
 		});
 	}
 	
+	/**
+	 * Unused in this class.
+	 */
 	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 		//retrieve result of scanning - instantiate ZXing object
 		IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);

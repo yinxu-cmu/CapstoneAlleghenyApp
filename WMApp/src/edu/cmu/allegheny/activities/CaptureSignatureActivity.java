@@ -36,7 +36,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-
+/**
+ * This class is used to capture the signature drawn in touch screen.
+ * The default storage path of the signature file is "/mnt/sdcard/download/"
+ * @author yinxu
+ *
+ */
 public class CaptureSignatureActivity extends Activity {
 
 	LinearLayout mContent;
@@ -69,17 +74,14 @@ public class CaptureSignatureActivity extends Activity {
 		Log.d("tempDir", tempDir);
 		
 		ContextWrapper cw = new ContextWrapper(getApplicationContext());
-//		File directory = cw.getDir(
-//				getResources().getString(R.string.external_dir),
-//				Context.MODE_PRIVATE);
+
+		/* The default storage path of the signature file is hardcoding here */
 		File directory = new File("/mnt/sdcard/download/");
 
 		Log.d("png path", getResources().getString(R.string.external_dir));
 		Log.d("directory", directory.getAbsolutePath());
 		
 		prepareDirectory();
-//		uniqueId = getTodaysDate() + "_" + getCurrentTime() + "_"
-//				+ Math.random();
 		uniqueId = "report_signature";
 		current = uniqueId + ".png";
 		mypath = new File(directory, current);
@@ -161,6 +163,10 @@ public class CaptureSignatureActivity extends Activity {
 			}
 	}
 
+	/**
+	 * Check if the signature capturing is valid. 
+	 * @return true if no error, vice versa.
+	 */
 	private boolean captureSignature() {
 
 		boolean error = false;
@@ -181,27 +187,11 @@ public class CaptureSignatureActivity extends Activity {
 		return error;
 	}
 
-	private String getTodaysDate() {
 
-		final Calendar c = Calendar.getInstance();
-		int todaysDate = (c.get(Calendar.YEAR) * 10000)
-				+ ((c.get(Calendar.MONTH) + 1) * 100)
-				+ (c.get(Calendar.DAY_OF_MONTH));
-		Log.w("DATE:", String.valueOf(todaysDate));
-		return (String.valueOf(todaysDate));
-
-	}
-
-	private String getCurrentTime() {
-
-		final Calendar c = Calendar.getInstance();
-		int currentTime = (c.get(Calendar.HOUR_OF_DAY) * 10000)
-				+ (c.get(Calendar.MINUTE) * 100) + (c.get(Calendar.SECOND));
-		Log.w("TIME:", String.valueOf(currentTime));
-		return (String.valueOf(currentTime));
-
-	}
-
+	/**
+	 * Set up the temporary directory which stores temporary file.
+	 * @return true if preparation success
+	 */
 	private boolean prepareDirectory() {
 		try {
 			if (makedirs()) {
@@ -219,6 +209,10 @@ public class CaptureSignatureActivity extends Activity {
 		}
 	}
 
+	/**
+	 * Auxiliary function for prepareDirecotry()
+	 * @return
+	 */
 	private boolean makedirs() {
 		File tempdir = new File(tempDir);
 		if (!tempdir.exists())
@@ -235,6 +229,11 @@ public class CaptureSignatureActivity extends Activity {
 		return (tempdir.isDirectory());
 	}
 
+	/**
+	 * The signature collector. It uses a canvas object to contain the signature
+	 * @author 
+	 *
+	 */
 	public class signature extends View {
 		private static final float STROKE_WIDTH = 5f;
 		private static final float HALF_STROKE_WIDTH = STROKE_WIDTH / 2;
@@ -254,6 +253,10 @@ public class CaptureSignatureActivity extends Activity {
 			paint.setStrokeWidth(STROKE_WIDTH);
 		}
 
+		/**
+		 * Save the signature as a local PNG file.
+		 * @param v is the signature view.
+		 */
 		public void save(View v) {
 			Log.v("log_tag", "Width: " + v.getWidth());
 			Log.v("log_tag", "Height: " + v.getHeight());
@@ -284,6 +287,9 @@ public class CaptureSignatureActivity extends Activity {
 			}
 		}
 
+		/**
+		 * clear the signature view.
+		 */
 		public void clear() {
 			path.reset();
 			invalidate();
@@ -341,6 +347,11 @@ public class CaptureSignatureActivity extends Activity {
 		private void debug(String string) {
 		}
 
+		/**
+		 * Auxiliary function for signature drawing.
+		 * @param historicalX
+		 * @param historicalY
+		 */
 		private void expandDirtyRect(float historicalX, float historicalY) {
 			if (historicalX < dirtyRect.left) {
 				dirtyRect.left = historicalX;
@@ -355,6 +366,11 @@ public class CaptureSignatureActivity extends Activity {
 			}
 		}
 
+		/**
+		 * Auxiliary function for signature drawing.
+		 * @param eventX
+		 * @param eventY
+		 */
 		private void resetDirtyRect(float eventX, float eventY) {
 			dirtyRect.left = Math.min(lastTouchX, eventX);
 			dirtyRect.right = Math.max(lastTouchX, eventX);

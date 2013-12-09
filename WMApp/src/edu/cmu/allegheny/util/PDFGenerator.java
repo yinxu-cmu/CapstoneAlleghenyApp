@@ -5,6 +5,8 @@ package edu.cmu.allegheny.util;
 
 /**
  * Pdf builder by using library from iText.
+ * 
+ * @author Jie Zhang
  */
 
 import java.io.File;
@@ -34,12 +36,11 @@ import edu.cmu.allegheny.data.Store;
 import edu.cmu.allegheny.data.StoreHandler;
 
 /**
- * First iText example: Hello World.
+ * 
  */
 public class PDFGenerator {
 
 	/** Path to the resulting PDF file. */
-//	public String fileName = "/Users/Jie/Desktop/hello.pdf";
 	private static String storeId;
 	private static String sigPath;
 	private static Store store;
@@ -55,18 +56,6 @@ public class PDFGenerator {
         FONT[2] = new Font(FontFamily.HELVETICA, 10);
         FONT[3] = new Font(FontFamily.HELVETICA, 8);
     }
-
-	/**
-	 * Creates a PDF file: hello.pdf
-	 * 
-	 * @param args
-	 *            no arguments needed
-	 */
-//	public static void main(String[] args) throws DocumentException,
-//			IOException {
-//		PDFGenerator g = new PDFGenerator();
-//	}
-
 	
 	public PDFGenerator(String storeId, Context context)
 			throws DocumentException, IOException{
@@ -140,18 +129,8 @@ public class PDFGenerator {
         cell.setBorder(Rectangle.NO_BORDER);
         cell.setHorizontalAlignment(PdfPCell.ALIGN_LEFT);
         table.addCell(cell);
-        
-        
-        
-//    	StringBuilder s = new StringBuilder();
-//    	s.append("Station_______________________  ");
-//    	s.append("Address______________________________________");
-//    	s.append("\nCity/State_____________  Zip________   ");
-//    	s.append("Phone_____________  Store ID_________________");
-//    	s.append("\n ");
    
     	return table;
-//        return new Paragraph(s.toString(), FONT[1]);
     }
 	
 	private static PdfPTable createStoreContact() throws DocumentException {
@@ -241,7 +220,6 @@ public class PDFGenerator {
         table.addCell(p);
         
         // Create contents in table
-//        int column = 12;
         for (int i = 0; i < formList.size(); i++){
         	p = new Phrase(formList.get(i).getMakeOfPump(), FONT[2]);
         	table.addCell(p);
@@ -348,11 +326,11 @@ public class PDFGenerator {
     private PdfPTable createSignature() throws DocumentException, MalformedURLException, IOException {
 		
     	PdfPTable table = new PdfPTable(4);
-    	table.setWidths(new int[]{2,5,4,5});
+    	table.setWidths(new int[]{2,5,4,2});
     	table.setWidthPercentage(100);
     	
     	// Create text "signature inspector"
-    	Phrase p = new Phrase("Signature\nInspector", FONT[1]);
+    	Phrase p = new Phrase("\nSignature", FONT[1]);
     	PdfPCell cell = new PdfPCell(p);
     	cell.setRowspan(2);
     	cell.setBorder(Rectangle.NO_BORDER);
@@ -384,7 +362,7 @@ public class PDFGenerator {
     	cell = new PdfPCell(p);
     	cell.setBorder(Rectangle.NO_BORDER);
     	table.addCell(cell);
-    	p = new Phrase("_______________________");
+    	p = new Phrase("   ");
     	cell = new PdfPCell(p);
     	cell.setBorder(Rectangle.NO_BORDER);
     	cell.setHorizontalAlignment(PdfPCell.ALIGN_BOTTOM);

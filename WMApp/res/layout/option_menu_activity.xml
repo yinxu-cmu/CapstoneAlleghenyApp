@@ -5,54 +5,60 @@
     android:background="@drawable/background_bluegradient" >
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/linearLayout1"
-        android:layout_marginLeft="28dp"
-        android:layout_toRightOf="@+id/linearLayout1"
-        android:orientation="vertical" >
+        android:layout_centerInParent="true"
+        android:orientation="horizontal" >
 
-        <Button
-            android:id="@+id/check_pump"
-            android:layout_width="110dp"
-            android:layout_height="106dp"
-            android:text="@string/check_pump"
-            android:textStyle="bold"
-            android:textColor="#eec900" />
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="110dp"
-            android:layout_height="106dp"
-            android:text="Complaint Received" 
-            android:textStyle="bold"
-            android:textColor="#eec900"/>
-    </LinearLayout>
+            <Button
+                android:id="@+id/check_pump"
+                android:layout_width="110dp"
+                android:layout_height="106dp"
+                android:text="@string/check_pump"
+                android:textColor="#eec900"
+                android:textStyle="bold" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="36dp"
-        android:orientation="vertical" >
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="110dp"
+                android:layout_height="106dp"
+                android:text="Complaint Received"
+                android:textColor="#eec900"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="110dp"
-            android:layout_height="106dp"
-            android:text="Check Scale" 
-            android:textStyle="bold"
-            android:textColor="#eec900"/>
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="110dp"
-            android:layout_height="106dp"
-            android:text="Check Scanner" 
-            android:textStyle="bold"
-            android:textColor="#eec900"/>
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="110dp"
+                android:layout_height="106dp"
+                android:text="Check Scale"
+                android:textColor="#eec900"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="110dp"
+                android:layout_height="106dp"
+                android:text="Check Scanner"
+                android:textColor="#eec900"
+                android:textStyle="bold" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>

@@ -19,6 +19,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
+ * This Activity displays overall information of a gas station. After picking up
+ * a station/store from the map view, users will be directed to FormActivity.
+ * 
  * @author yinxu
  *
  */
@@ -45,7 +48,6 @@ public class FormActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.form_activity);
-		//barcode = (TextView) findViewById(R.id.tv_barcode_result);
 		storeId = (EditText) findViewById(R.id.form_storeId_input);
 		station = (EditText) findViewById(R.id.form_station_input);
 		address = (EditText) findViewById(R.id.form_addr_input);
@@ -74,6 +76,9 @@ public class FormActivity extends Activity{
 		setListeners();
 	}
 	
+	/**
+	 * Set listeners for buttons.
+	 */
 	public void setListeners() {
 		returnBtn.setOnClickListener(new OnClickListener() {
 			

@@ -48,13 +48,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 /**
+ * LocatorActivity does the following:
+ * 1. displays Google Map view;
+ * 2. select nearby stations/stores that has the same zipcode with current location.
+ * 3. put markers on the map view for each station/store.
+ * 
  * @author yinxu
  * 
  */
 public class LocatorActivity extends FragmentActivity {
 
 	// Views
-	// private TextView text;
 	private GoogleMap map;
 	private String zipCode;
 
@@ -64,53 +68,7 @@ public class LocatorActivity extends FragmentActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-//		super.onCreate(savedInstanceState);
-//		setContentView(R.layout.locator_activity);
-//		
-//		// Data Transaction
-//		sh = new StoreHandler(this);
-//
-//		// getting google map object
-//		SupportMapFragment mapFragment = 
-//				(SupportMapFragment) getSupportFragmentManager()
-//				.findFragmentById(R.id.locator_map);
-//		map = mapFragment.getMap();
-//		final LocationManager locManager = 
-//				(LocationManager) getSystemService(LOCATION_SERVICE);
-//		// getting a Criteria object to retrieve provide
-//		final Criteria criteria = new Criteria();
-//		// getting the name of the best provider
-//		String provider = locManager.getBestProvider(criteria, true);
-//		// getting current location
-//		Location location = locManager.getLastKnownLocation(provider);
-//
-//		
-//		if (location != null) {
-//			Log.d("MAP", "Location found!");
-//			map.clear();
-//			try {
-//				getZipCode(location);
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//				Log.d("MAP", "can't get zip with location");
-////				ifError();
-//				zipCode = "15217";
-//				
-//			}
-//
-//		} else {
-//			Log.d("MAP", "can't get location");
-////			ifError();
-//			zipCode = "15217";
-//		}
-//		
-//		try {
-//			putMultiMarkers();
-//		} catch (Exception e) {
-//			AlertDialog.Builder builder = new Builder(LocatorActivity.this);
-//			builder.setMessage("Please try again");
-//			builder.show();
-//		}
+
 		super.onCreate(savedInstanceState);
         setContentView(R.layout.locator_activity);
         
@@ -141,9 +99,7 @@ public class LocatorActivity extends FragmentActivity {
                 } catch (IOException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
-//                        AlertDialog.Builder builder = new Builder(LocatorActivity.this);
-//                        builder.setMessage("GPS is not working. Please try again.");
-//                        builder.show();
+
                         LayoutInflater inflater = LocatorActivity.this.getLayoutInflater();
                         View layout=inflater.inflate(R.layout.manual_input_dialog, null); 
                 		
@@ -245,7 +201,6 @@ public class LocatorActivity extends FragmentActivity {
 		}
 		
 
-		// useful code
 		final Geocoder gcd = new Geocoder(getApplicationContext());
 		LatLng pos = null;
 		for (int i = 0; i < addrList.size(); i++) {
@@ -320,7 +275,7 @@ public class LocatorActivity extends FragmentActivity {
 	
 	/**
 	 * return manually input zipcode
-	 * @return
+	 * @return void
 	 */
 	public void ifError() {
 		LayoutInflater inflater = LocatorActivity.this.getLayoutInflater();

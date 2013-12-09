@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 
 /**
+ * Deprecated class
  * @author yinxu
  *
  */

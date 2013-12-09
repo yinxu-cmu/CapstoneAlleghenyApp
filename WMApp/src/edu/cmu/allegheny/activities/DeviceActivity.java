@@ -27,6 +27,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
+ * This Activity is associated with each gas pump. It displays pump information
+ * retrieved from database and let users input measurement result.
+ * 
  * @author yinxu
  *
  */
@@ -71,7 +74,6 @@ public class DeviceActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.device_activity);
-//		deviceId = (EditText) findViewById(R.id.de);
 		makeOfPump = (EditText) findViewById(R.id.device_activity_makeofpump_input);
 		sn = (EditText) findViewById(R.id.device_activity_sn_input);
 		pumpNum = (EditText) findViewById(R.id.device_activity_pumpnumber_input);
@@ -102,7 +104,6 @@ public class DeviceActivity extends Activity{
 		
 		brandOfGas.setText(deviceId);
 		
-//		device = dh.getDevice(deviceId);
 		Log.d("DEVICE", "search device done");
 		
 		//set views
@@ -165,7 +166,7 @@ public class DeviceActivity extends Activity{
 	}
 	
 	/**
-	 * save form line to db
+	 * Save form line to local database.
 	 * @return success or not
 	 */
 	public boolean saveFormLine() {
